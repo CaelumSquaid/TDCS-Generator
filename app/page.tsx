@@ -30,9 +30,9 @@ export default function Home() {
             type="file"
             className="text-sm flex-1"
             onChange={(ev) => {
-              ev.currentTarget.files
-                ? setFile(ev.currentTarget.files[0])
-                : null;
+              if (ev.currentTarget?.files !== null) {
+                setFile(ev.currentTarget.files[0]);
+              }
             }}
           />
         </div>
