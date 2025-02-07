@@ -47,7 +47,9 @@ export default function Home() {
                 {Array.from(Array(pages - 1), () => i++).map((val, indx) => (
                   <Button
                     key={indx}
-                    onClick={(e) => setCurrPage(val)}
+                    onClick={(e) =>
+                      setCurrPage(parseInt(e.currentTarget.value))
+                    }
                     className="text-xs"
                     variant={currPage == val ? "default" : "outline"}
                   >
@@ -74,10 +76,7 @@ export default function Home() {
                 setCurrPage(1);
               }}
             >
-              <Page
-                pageNumber={currPage}
-                onLoadSuccess={(e) => console.log("rendered!")}
-              />
+              <Page pageNumber={currPage} />
             </Document>
           </ScrollArea>
         </div>
